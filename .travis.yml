@@ -1,0 +1,19 @@
+language: generic
+
+services:
+  - docker
+
+  deploy:
+     provider: elasticbeanstalk
+     region:   us-east-2
+     app: "my-first-app-travis"
+     env: "myfirstapptravis-env"
+     access_key_id: $AWS_ACCESS_KEY
+     secret_access_key: $AWS_SECRET_KEY
+
+     bucket_name: "my-first-app-travis-bucket"
+     bucket_path: "docker"
+
+     on:
+       branch: master
+       
